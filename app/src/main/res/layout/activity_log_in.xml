@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login_activity"
+    tools:context=".Login.LogInActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="100">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Together"
+                android:fontFamily="cursive"
+                android:textSize="31sp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="75">
+
+            <!--Login Button-->
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="140dp"
+                android:layout_height="56dp"
+                android:layout_centerInParent="true"
+                android:text="@string/login"
+                android:visibility="visible"
+                android:textColor="#ffffff"
+                android:background="@drawable/button_style"/>
+
+            <!--Mobile Number-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_mobile_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txt_enter_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_mobile_number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:ccp_hintExampleNumber="true"
+                    app:ccp_hintExampleNumberType="FIXED_LINE"
+                    app:layout_constraintBottom_toBottomOf="@+id/mobile_number"
+                    app:layout_constraintEnd_toStartOf="@+id/mobile_number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mobile_number"
+                    />
+
+                <EditText
+                    android:id="@+id/mobile_number"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="phone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_enter_mobile_number"
+                    app:layout_constraintVertical_bias="0.15" />
+
+                <Button
+                    android:id="@+id/btn_next"
+                    android:layout_width="150dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/button_style"
+                    android:text="@string/get_otp"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mobile_number"
+                    app:layout_constraintVertical_bias="0.20" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <!--OTP-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_otp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:id="@+id/txt_otp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_otp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+
+
+
+                <EditText
+                    android:id="@+id/otp_number"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="phone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_otp"
+                    app:layout_constraintVertical_bias="0.15"
+                    android:maxLength="6"
+                    android:textAlignment="center"/>
+
+                <Button
+                    android:id="@+id/btn_verify_otp"
+                    android:layout_width="150dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/button_style"
+                    android:text="@string/verify_otp"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/otp_number"
+                    app:layout_constraintVertical_bias="0.20" />
+
+
+                <TextView
+                    android:id="@+id/txt_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_verify_otp"
+                    app:layout_constraintVertical_bias="0.10" />
+
+                <TextView
+                    android:id="@+id/txt_resend_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_verify_otp"
+                    app:layout_constraintVertical_bias="0.10"
+                    android:text="@string/resend_code"
+                    android:visibility="gone"
+                    android:textColor="#4CAF50"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/mb_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/wrong_num"
+                    app:layout_constraintEnd_toEndOf="@+id/wrong_num"
+                    app:layout_constraintStart_toStartOf="@+id/wrong_num"
+                    app:layout_constraintTop_toBottomOf="@+id/wrong_num"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/wrong_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:text="@string/wrong_number"
+                    android:textColor="#4CAF50"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_verify_otp"
+                    app:layout_constraintVertical_bias="0.90"
+                    android:focusable="true" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
